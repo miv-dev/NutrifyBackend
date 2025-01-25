@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-jx+2d(plm$9kfkcnu#c06@d$g4@4*z6bji!ce4=ak7#06hv7p5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.1.159", "0.0.0.0"]
 
 # Application definition
 
@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'authentication',
-    'accounts'
+    'accounts',
+    'recipes',
+    'daily_history'
 ]
 
 REST_FRAMEWORK = {

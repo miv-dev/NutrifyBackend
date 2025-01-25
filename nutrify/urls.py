@@ -16,10 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+from recipes.views import RecipeViewSet
+from daily_history.views import DailyHistoryViewSet
+
+router = DefaultRouter()
+router.register('recipes', RecipeViewSet)
+router.register('history', DailyHistoryViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
-    path('api/users/', include('accounts.urls'))
+    path('api/users/', include('accounts.urls')),
+    path('api/', include(router.urls))
 ]
